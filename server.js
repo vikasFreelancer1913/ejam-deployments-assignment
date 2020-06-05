@@ -5,7 +5,7 @@ const router = require('./routes/index');
 
 const app = express(); 
 const PORT = process.env.PORT || 3001;
-const MONGODB_URI = process.env.PROD_MONGODB;
+const MONGODB_URI = "mongodb+srv://testingUser:abcd@1234@deployments-s9emb.mongodb.net/Deployment?retryWrites=true&w=majority";
 
 // app.use(cors())
 app.use(express.urlencoded({ extended: true })); 
