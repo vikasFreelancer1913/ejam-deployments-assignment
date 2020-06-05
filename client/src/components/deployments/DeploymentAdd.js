@@ -11,9 +11,7 @@ function DeploymentAdd(props) {
   useEffect(() => {
     get('/api/templates').then(function(response) {
       if (response && response.data && response.data.length) {
-        setTemplate({
-          templates: response.data,
-        });
+        setTemplate(templates => ({ ...templates, templates: response.data }));
       }
     })
     .catch(function(error) {
