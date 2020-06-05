@@ -47,7 +47,7 @@ function DeploymentList(props) {
             </tr>
           </thead>
           <tbody>
-            {deployments.length && deployments.map(function(deployment) { 
+            {deployments && deployments.length > 0 && deployments.map(function(deployment) { 
               return (
                 <tr key={ deployment._id }> 
                   <td>{deployment.name}</td> 
