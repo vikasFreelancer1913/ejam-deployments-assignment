@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const router = require('./routes/index');
 
 const app = express(); 
-const PORT = 3001; 
+const PORT = process.env.PORT || 3001;
 const MONGODB_URI = process.env.PROD_MONGODB;
 
 // app.use(cors())
