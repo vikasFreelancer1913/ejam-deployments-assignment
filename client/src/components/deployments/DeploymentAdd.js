@@ -3,28 +3,22 @@ import { useDispatch } from 'react-redux';
 import { post, get } from 'axios';
 import { addDeployment } from '../../actions'; 
 
-let isTemplateCalled = false;
-
 function DeploymentAdd(props) { 
   const initialState = { name: '', url: '', time: '' }
   const [deployment, setFields] = useState(initialState) 
   const [templates, setTemplate] = useState(null) 
   const dispatch = useDispatch(); 
   useEffect(() => {
-    if (!isTemplateCalled) {
-      get('/api/templates').then(function(response) {
-        if (response && response.data && response.data.length) {
-          setTemplate({
-            templates: response.data,
-          });
-          isTemplateCalled = true;
-          console.log('Templates: ', templates);
-        }
-      })
-      .catch(function(error) {
-        console.log('Template Error: ', error);
-      });
-    }
+    get('/api/templates').then(function(response) {
+      if (response && response.data && response.data.length) {
+        setTemplate({
+          templates: response.data,
+        });
+      }
+    })
+    .catch(function(error) {
+      console.log('Template Error: ', error);
+    });
   }, [templates]);
   
   function handleChange(event) { 

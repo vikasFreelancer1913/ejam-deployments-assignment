@@ -12,4 +12,4 @@ export default function deploymentsReducer(state = initialState, action) {
     default:
       return state;
   }
-}
+} 
