@@ -17,14 +17,14 @@ router.get('/deployments', function(req, res) {
 });
 
 
-router.post('/deployments', function(req, res) {     
+router.post('/deployments', function(req, res) {
   let deployment = new Deployment(req.body);
   deployment.save()
     .then(deployment => {
       res.send(deployment);
     })
     .catch(function(err) {
-      res.status(422).send('Deployment add failed');
+      res.status(422).send('Deployment add failed', err);
     });
 });
 
