@@ -5,7 +5,7 @@ import { addDeployment } from '../../actions';
 
 let isTemplateCalled = false;
 function DeploymentAdd(props) { 
-  const initialState = { name: '', url: '', time: '' }
+  const initialState = { name: '', url: '', version: '', deployedAt: '' }
   const [deployment, setFields] = useState(initialState) 
   const [templates, setTemplate] = useState(null) 
   const dispatch = useDispatch(); 
@@ -29,7 +29,10 @@ function DeploymentAdd(props) {
 
   function handleSubmit(event) { 
     event.preventDefault();
-    if(!deployment.name || !deployment.url || !deployment.version ) return
+    if(!deployment.name || !deployment.url || !deployment.version ) {
+      alert('All fields are mandatory!');
+      return
+    }
 
     const today = new Date();
     const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
