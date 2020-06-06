@@ -21,10 +21,11 @@ router.post('/deployments', function(req, res) {
   let deployment = new Deployment(req.body);
   deployment.save()
     .then(deployment => {
-      res.send(deployment);
+      res.json(deployment);
     })
     .catch(function(err) {
-      res.status(422).send('Deployment add failed', err);
+      console.log('Error=====', err)
+      res.status(422).send('Deployment add failed');
     });
 });
 
