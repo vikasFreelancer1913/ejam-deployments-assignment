@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector,  useDispatch } from 'react-redux';      
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -6,19 +6,48 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { removeDeployment } from '../../actions';
 
 function DeploymentList(props) {
+  const [showConfirm, showConfirmDialog] = useState(false);
+  const [deleteItem, setDeleteItem] = useState(null);
+
   const deployments = useSelector(function(state) { return state.deployments }); 
   const dispatch = useDispatch();
-  function handleDelete(_id) { 
-    axios.delete(`/api/deployments/${_id}`)
-      .then(function() {
-        dispatch(removeDeployment(_id));
-        props.history.push("/")
-      })
-      .catch(function(error) { console.log('error', error) });
+  
+  function handleDelete(_id) {
+    showConfirmDialog(true);
+    setDeleteItem(_id);
+  }
+
+  function deleteTheDeployment() {
+    showConfirmDialog(false);
+    if (deleteItem !== null) {
+      axios.delete(`/api/deployments/${deleteItem}`)
+          .then(function() {
+            dispatch(removeDeployment(deleteItem));
+            props.history.push("/")
+          })
+          .catch(function(error) { console.log('error', error) });
+    }
+  }
+
+  function cancleDelete() {
+    showConfirmDialog(false);
+    setDeleteItem(null);
   }
 
   return ( 
     <div className="listWrap">
+      {
+        showConfirm && 
+        <div className="confirmBoxOuter">
+          <div className="confirmBoxInner">
+            <p>Are you sure you want the delete the Deployment?</p>
+            <div className="actionsWrap">
+              <button className="btn yesBtn btn-secondary" onClick={deleteTheDeployment}>Yes</button>
+              <button className="btn noBtn btn-primary" onClick={cancleDelete}>No</button>
+            </div>
+          </div>
+        </div>
+      }
       <h2>
         Deployments
         <Link to="/deployments/new" className="btn btn-primary float-right">Create Deployment</Link> 
