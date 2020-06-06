@@ -51,6 +51,8 @@ code {
   color: #333;
   line-height: 16px;
   font-size: 14px;
+  margin: 0;
+  width: auto;
 }
 
 .dataForMobile .actions button svg {
