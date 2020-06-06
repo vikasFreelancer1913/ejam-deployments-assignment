@@ -31,6 +31,7 @@ code {
   background-color: #edfbf0;
 }
 
+.dataForMobile .actions button,
 .deploymentTable td.actions button {
   border: none;
   background: none;
@@ -43,6 +44,20 @@ code {
   outline: none;
 }
 
+.dataForMobile .actions button {
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding: 5px 10px;
+  color: #333;
+  line-height: 16px;
+  font-size: 14px;
+}
+
+.dataForMobile .actions button svg {
+  margin: -4px 5px 0 0;
+}
+
+.dataForMobile .actions button:hover,
 .deploymentTable td.actions button:hover {
   color: #333333;
 }
@@ -119,7 +134,6 @@ button.btn-secondary {
     margin-top: 10px;
   }
   .dataForMobile ul li span {
-    display: block;
     font-weight: bold;
   }
   .dataForMobile ul li:first-child {

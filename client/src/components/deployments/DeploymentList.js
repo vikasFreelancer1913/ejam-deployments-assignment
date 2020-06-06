@@ -69,12 +69,12 @@ function DeploymentList(props) {
                 {deployments && deployments.length > 0 && deployments.map(function(deployment) { 
                   return (
                     <li key={ deployment._id }> 
-                      <p><span>Template name </span>{deployment.name}</p> 
-                      <p><span>URL </span>{deployment.url}</p>
-                      <p><span>Version </span>{deployment.version}</p>
-                      <p><span>Deployed At </span>{deployment.deployedAt}</p>
+                      <p><span>Template name: </span>{deployment.name}</p> 
+                      <p><span>URL: </span>{deployment.url}</p>
+                      <p><span>Version: </span>{deployment.version}</p>
+                      <p><span>Deployed At: </span>{deployment.deployedAt}</p>
                       <p className="actions">
-                        <button onClick={() => handleDelete(deployment._id)}><FaTrashAlt /></button>
+                        <button onClick={() => handleDelete(deployment._id)}><FaTrashAlt /> Delete</button>
                       </p>
                     </li>
                   );
