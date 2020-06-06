@@ -2,16 +2,13 @@ const mongoose = require('mongoose');
 
 const deploymentSchema = new mongoose.Schema({ 
   url: {
-    type: String,
-    required: [true, "URL is required"]
+    type: String
   },
   name: {
-    type: String,
-    required: [true, "Template name is required"]
+    type: String
   },
   version: {
-    type: String,
-    required: [true, "Version is required"]
+    type: String
   },
   deployedAt: {
     type: String,
