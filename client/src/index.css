@@ -78,10 +78,53 @@ button.btn-secondary {
   color: #6c757d;
 }
 
+.dataForMobile {
+  display: none;
+}
+
 /* Media query */
 
 @media screen and (max-width: 480px) {
+  .listWrap h2 {
+    font-size: 20px;
+  }
+  
+  .listWrap a.btn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
   .addFormWrapper {
     max-width: 100%;
+  }
+
+  table.deploymentTable {
+    display: none;
+  }
+  .dataForMobile {
+    display: block;
+  }
+
+  .dataForMobile ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    width: 100%;
+  }
+
+  .dataForMobile ul li {
+    display: block;
+    padding: 10px 0 0 0;
+    border-top: 1px solid #cccccc;
+    margin-top: 10px;
+  }
+  .dataForMobile ul li span {
+    display: block;
+    font-weight: bold;
+  }
+  .dataForMobile ul li:first-child {
+    padding: 0;
+    margin: 0;
+    border: none;
   }
 }
