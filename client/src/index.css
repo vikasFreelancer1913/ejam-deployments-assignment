@@ -116,6 +116,7 @@ button.btn-secondary {
   background: #fff;
   padding: 10px;
   border-radius: 3px;
+  min-width: 300px;
 }
 
 .confirmBoxInner .actionsWrap button {
