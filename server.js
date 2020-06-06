@@ -6,7 +6,7 @@ const router = require('./routes/index');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const HOST = process.env.LOCAL_HOST || '0.0.0.0';
-const MONGODB_URI = "mongodb+srv://testingUser:abcd@1234@deployments-s9emb.mongodb.net/Deployment?retryWrites=true&w=majority";;
+const MONGODB_URI = process.env.PROD_MONGODB || "mongodb+srv://testingUser:abcd@1234@deployments-s9emb.mongodb.net/Deployment?retryWrites=true&w=majority";
 // app.use(cors())
 app.use('/api', router);
 app.use(express.static(path.join(__dirname, 'client/build')));
